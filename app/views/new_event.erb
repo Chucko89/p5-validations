@@ -1,0 +1,22 @@
+<% if @error_message %>
+  <h2><% @error_message.each do |error| %>
+    <%= error[1][0] %><br>
+    <% end %>
+  </h2>
+<% end %>
+
+<form action='/events/create' method='post'>
+  Your Name:
+  <input type='text' name='organizer_name' placeholder='e.g. charlie' value=<%= "#{@name}" %>>
+  <br>
+  Your Email:
+  <input type='text' name='organizer_email' placeholder='e.g. mike@mike.com' value= <%="#{@email}"%>>
+  <br>
+  Event Name:
+  <input type='text' name='title' placeholder='event name' value=<%="#{@title}"%>>
+  <br>
+  Event Date:
+  <input type='date' name='date' value=<%="#{@date}"%>>
+  <br>
+  <input type='submit' name='submit' value='Create Event!'>
+</form>
